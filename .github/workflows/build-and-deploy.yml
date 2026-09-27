@@ -181,6 +181,16 @@ jobs:
             - name: Install Power Platform CLI
               uses: microsoft/powerplatform-actions/actions-install@0e44beb5424af932af47250a2568eba4c259e3d8 # v1.10.0
 
+
+            - name: Install pac as dotnet tool
+              shell: pwsh
+              run: |
+                dotnet tool install --global Microsoft.PowerApps.CLI.Tool
+                "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+
+
+
+
             - name: Create PAC auth profile
               shell: pwsh
               run: |
@@ -263,6 +273,15 @@ jobs:
 
             - name: Install Power Platform CLI
               uses: microsoft/powerplatform-actions/actions-install@0e44beb5424af932af47250a2568eba4c259e3d8 # v1.10.0
+
+
+            - name: Install pac as dotnet tool
+              shell: pwsh
+              run: |
+                dotnet tool install --global Microsoft.PowerApps.CLI.Tool
+                "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+
+
 
             - name: Create PAC auth profile
               shell: pwsh
