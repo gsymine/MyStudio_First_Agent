@@ -320,9 +320,17 @@ jobs:
                     "--force-overwrite",
                     "--publish-changes",
                     "--async",
-                    "--max-async-wait-time", "60",
-                    "--stage-and-upgrade"
+                    "--max-async-wait-time", "60"
                   )
+
+                  # Only upgrade when the solution already exists (first deployment is a plain import)
+                  $existing = pac solution list | Out-String
+                  if ($suffix -eq "_managed" -and $existing -match "\b${{ matrix.solution }}\b") {
+                      Write-Host "Solution exists in target - importing as upgrade"
+                      $importArgs += "--stage-and-upgrade"
+                  } else {
+                      Write-Host "First deployment (or unmanaged) - importing without upgrade"
+                  }
 
                   if ("${{ steps.settings.outputs.has_settings }}" -eq "true") {
                       $importArgs += "--settings-file"
