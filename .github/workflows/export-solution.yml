@@ -88,12 +88,24 @@ jobs:
                     --managed false `
                     --overwrite
 
+
+            - name: Export solution (managed)
+              shell: pwsh
+              run: |
+                pac solution export `
+                  --name "${{ inputs.solution_name }}" `
+                  --path "${{ runner.temp }}/${{ inputs.solution_name }}_managed.zip" `
+                  --managed `
+                  --overwrite
+
+                    
+
             - name: Unpack solution
               uses: microsoft/powerplatform-actions/unpack-solution@0e44beb5424af932af47250a2568eba4c259e3d8 # v1.10.0
               with:
                   solution-file: ${{ runner.temp }}/${{ inputs.solution_name }}.zip
                   solution-folder: ${{ env.SOLUTION_FOLDER }}
-                  solution-type: "Unmanaged"
+                  solution-type: "Both"
                   overwrite-files: true
 
             - name: Extract solution metadata
