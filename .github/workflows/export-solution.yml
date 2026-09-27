@@ -15,7 +15,7 @@ on:
                 description: "Source environment URL"
                 required: true
                 type: string
-                default: "https://yourorg-dev.crm.dynamics.com"
+                default: "https://orgb15931c2.crm.dynamics.com"
             target_branch:
                 description: "Target branch for the PR"
                 required: false
