@@ -1,0 +1,17 @@
+kind: TaskDialog
+inputs:
+  - kind: ManualTaskInput
+    propertyName: "'genie_space_id'"
+    value: 01f1bac8112b12c983526ddf0ebc4776
+
+modelDisplayName: Azure Databricks Genie
+modelDescription: Query Genie spaces to get insights from your data.
+action:
+  kind: InvokeExternalAgentTaskAction
+  connectionReference: msfa_Orchestrator.shared_databricks.3be6404c93b744dd9499389711d875b3
+  connectionProperties:
+    mode: Invoker
+
+  operationDetails:
+    kind: ModelContextProtocolMetadata
+    operationId: InvokeGenieMCP

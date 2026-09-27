@@ -11,6 +11,16 @@
   <optionsets />
   <CustomControls />
   <EntityDataProviders />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="msfa_Orchestrator.shared_databricks.3be6404c93b744dd9499389711d875b3">
+      <connectionreferencedisplayname>msfa_Orchestrator.shared_databricks.3be6404c93b744dd9499389711d875b3</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_databricks</connectorid>
+      <iscustomizable>0</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
   <Languages>
     <Language>1033</Language>
   </Languages>
