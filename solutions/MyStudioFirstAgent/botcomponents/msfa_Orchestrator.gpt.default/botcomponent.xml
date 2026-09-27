@@ -1,0 +1,10 @@
+<botcomponent schemaname="msfa_Orchestrator.gpt.default">
+  <componenttype>15</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Sharepoint_Expert</name>
+  <parentbotid>
+    <schemaname>msfa_Orchestrator</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,12 @@
+<botcomponent schemaname="msfa_Orchestrator.file.Client_Summary_Report.docx_f4q">
+  <componenttype>14</componenttype>
+  <description>This knowledge source searches information contained in Client_Summary_Report.docx</description>
+  <filedata mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Client_Summary_Report.docx</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>Client_Summary_Report.docx</name>
+  <parentbotid>
+    <schemaname>msfa_Orchestrator</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

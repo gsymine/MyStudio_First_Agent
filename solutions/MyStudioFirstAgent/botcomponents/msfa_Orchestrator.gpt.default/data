@@ -1,0 +1,12 @@
+kind: GptComponentMetadata
+displayName: Sharepoint_Expert
+instructions:
+responseInstructions:
+gptCapabilities:
+  webBrowsing: false
+  codeInterpreter: false
+
+aISettings:
+  model: {}
+  extensionData:
+    lastUsedCustomModel: {}

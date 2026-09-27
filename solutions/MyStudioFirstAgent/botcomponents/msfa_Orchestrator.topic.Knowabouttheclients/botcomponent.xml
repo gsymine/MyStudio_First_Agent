@@ -1,0 +1,10 @@
+<botcomponent schemaname="msfa_Orchestrator.topic.Knowabouttheclients">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Know about the clients</name>
+  <parentbotid>
+    <schemaname>msfa_Orchestrator</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
