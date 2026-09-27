@@ -1,5 +1,9 @@
 # Build and Deploy Solution Workflow
 # Builds the solution from source and deploys to target environments
+#
+# Flow:
+#   - Merge to main (push)        -> build -> deploy to TEST automatically
+#   - Manual run, environment=prod -> build -> wait for approval -> deploy to PROD
 
 name: Build and Deploy
 
@@ -37,8 +41,8 @@ concurrency:
     cancel-in-progress: false
 
 env:
-    # Default solution - update this for your project
-    DEFAULT_SOLUTION: "YourSolutionName"
+    # Default solution (not referenced by the jobs below; kept for reference)
+    DEFAULT_SOLUTION: "MyStudioFirstAgent"
 
 jobs:
     # Detect which solutions changed
@@ -66,11 +70,11 @@ jobs:
                   } else {
                       # Detect from git diff
                       $changedFiles = git diff --name-only HEAD~1 HEAD
-                      $solutionFolders = $changedFiles | 
-                          Where-Object { $_ -match '^solutions/([^/]+)/' } | 
-                          ForEach-Object { $matches[1] } | 
+                      $solutionFolders = $changedFiles |
+                          Where-Object { $_ -match '^solutions/([^/]+)/' } |
+                          ForEach-Object { $matches[1] } |
                           Select-Object -Unique
-                      
+
                       if ($solutionFolders) {
                           $solutions = @($solutionFolders)
                       }
@@ -181,15 +185,12 @@ jobs:
             - name: Install Power Platform CLI
               uses: microsoft/powerplatform-actions/actions-install@0e44beb5424af932af47250a2568eba4c259e3d8 # v1.10.0
 
-
+            # Workaround: make 'pac' available to the pwsh steps below
             - name: Install pac as dotnet tool
               shell: pwsh
               run: |
-                dotnet tool install --global Microsoft.PowerApps.CLI.Tool
-                "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
-
-
-
+                  dotnet tool install --global Microsoft.PowerApps.CLI.Tool
+                  "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
 
             - name: Create PAC auth profile
               shell: pwsh
@@ -240,7 +241,9 @@ jobs:
     # Deploy to Production (requires approval)
     deploy-prod:
         needs: [detect-changes, build, deploy-test]
-        if: inputs.environment == 'prod'
+        # FIX: deploy-test is skipped on a manual prod run; without !cancelled() && !failure(),
+        # a skipped dependency causes this job to be skipped as well.
+        if: ${{ !cancelled() && !failure() && inputs.environment == 'prod' }}
         runs-on: windows-latest
         environment: prod
 
@@ -274,14 +277,12 @@ jobs:
             - name: Install Power Platform CLI
               uses: microsoft/powerplatform-actions/actions-install@0e44beb5424af932af47250a2568eba4c259e3d8 # v1.10.0
 
-
+            # Workaround: make 'pac' available to the pwsh steps below
             - name: Install pac as dotnet tool
               shell: pwsh
               run: |
-                dotnet tool install --global Microsoft.PowerApps.CLI.Tool
-                "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
-
-
+                  dotnet tool install --global Microsoft.PowerApps.CLI.Tool
+                  "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
 
             - name: Create PAC auth profile
               shell: pwsh
