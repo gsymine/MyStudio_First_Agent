@@ -1,0 +1,5 @@
+<botcomponent_environmentvariabledefinitionset>
+  <botcomponent_environmentvariabledefinition botcomponentid.schemaname="msfa_Orchestrator.action.AzureDatabricks-AzureDatabricksGenie" environmentvariabledefinitionid.schemaname="msfa_GenieSpaceID">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_environmentvariabledefinition>
+</botcomponent_environmentvariabledefinitionset>

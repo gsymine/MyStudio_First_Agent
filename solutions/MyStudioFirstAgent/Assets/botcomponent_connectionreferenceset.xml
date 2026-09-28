@@ -1,0 +1,5 @@
+<botcomponent_connectionreferenceset>
+  <botcomponent_connectionreference botcomponentid.schemaname="msfa_Orchestrator.action.AzureDatabricks-AzureDatabricksGenie" connectionreferenceid.connectionreferencelogicalname="msfa_Orchestrator.shared_databricks.3be6404c93b744dd9499389711d875b3">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+</botcomponent_connectionreferenceset>
