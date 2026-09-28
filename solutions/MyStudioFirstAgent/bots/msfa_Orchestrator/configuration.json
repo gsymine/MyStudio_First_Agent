@@ -1,7 +1,7 @@
 {
   "$kind": "BotConfiguration",
   "settings": {
-    "GenerativeActionsEnabled": false
+    "GenerativeActionsEnabled": true
   },
   "isAgentConnectable": false,
   "gPTSettings": {
@@ -15,5 +15,8 @@
     "isSemanticSearchEnabled": true,
     "contentModeration": "Low",
     "optInUseLatestModels": false
+  },
+  "recognizer": {
+    "$kind": "GenerativeAIRecognizer"
   }
 }

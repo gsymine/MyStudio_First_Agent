@@ -1,4 +1,0 @@
-kind: KnowledgeSourceConfiguration
-source:
-  kind: SharePointSearchSource
-  site: https://mystudio520.sharepoint.com/sites/MyStudioFirstAgent/Shared%20Documents

@@ -1,0 +1,15 @@
+{
+  "EnvironmentVariables": [
+    {
+      "SchemaName": "msfa_GenieSpaceID",
+      "Value": "01f1bac8112b12c983526ddf0ebc4776"
+    }
+  ],
+  "ConnectionReferences": [
+    {
+      "LogicalName": "msfa_Orchestrator.shared_databricks.3be6404c93b744dd9499389711d875b3",
+      "ConnectionId": "70e83274b1624f5dbda1017d6cfe91bf",
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_databricks"
+    }
+  ]
+}

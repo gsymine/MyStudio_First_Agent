@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="msfa_GenieSpaceID">
+  <defaultvalue>01f1bac8112b12c983526ddf0ebc4776</defaultvalue>
+  <description default="Databricks Genie space ID used by the Azure Databricks Genie tool. Set per environment via deployment settings.">
+    <label description="Databricks Genie space ID used by the Azure Databricks Genie tool. Set per environment via deployment settings." languagecode="1033" />
+  </description>
+  <displayname default="Genie Space ID">
+    <label description="Genie Space ID" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>
